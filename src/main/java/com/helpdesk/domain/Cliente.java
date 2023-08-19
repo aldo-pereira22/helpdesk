@@ -1,5 +1,6 @@
 package com.helpdesk.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.helpdesk.domain.enums.Perfil;
 
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ public class Cliente extends Pessoa {
     private  static final long serialVersionId = 1L;
 
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private List<Chamado> chamados = new ArrayList<>();
 
