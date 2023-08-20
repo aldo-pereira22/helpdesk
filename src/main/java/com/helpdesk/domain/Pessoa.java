@@ -2,6 +2,7 @@ package com.helpdesk.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.helpdesk.domain.enums.Perfil;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import java.io.Serializable;
