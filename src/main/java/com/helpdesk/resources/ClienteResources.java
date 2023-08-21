@@ -35,14 +35,14 @@ public class ClienteResources {
         List<ClienteDTO> listDTO = list.stream().map(obj -> new ClienteDTO(obj)).collect(Collectors.toList());
         return  ResponseEntity.ok().body(listDTO);
     }
-//
-//    @PostMapping
-//    public ResponseEntity<TecnicoDTO> create(@Valid @RequestBody TecnicoDTO objDTO){
-//        Tecnico newObj = service.create(objDTO);
-//        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-//                .buildAndExpand(newObj.getId()).toUri();
-//        return ResponseEntity.created(uri).build();
-//    }
+
+    @PostMapping
+    public ResponseEntity<ClienteDTO> create(@Valid @RequestBody ClienteDTO objDTO){
+        Cliente newObj = service.create(objDTO);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(newObj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
+    }
 //
 //    @PutMapping(value = "/{id}")
 //    public ResponseEntity<TecnicoDTO> update(@PathVariable Integer id,@Valid @RequestBody TecnicoDTO objDto){
