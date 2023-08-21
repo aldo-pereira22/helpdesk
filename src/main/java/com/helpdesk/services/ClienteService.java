@@ -13,6 +13,7 @@ import com.helpdesk.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,19 +36,22 @@ public class ClienteService {
 
     public Cliente create(ClienteDTO objDTO) {
         objDTO.setId(null);
-        validaPorCpfeEmail(objDTO);
+        validaPorCpfEEmail(objDTO);
         Cliente newObj = new Cliente(objDTO);
         return clienteRepository.save(newObj);
     }
 
-    public Cliente update(Integer id, ClienteDTO objDto) {
-        objDto.setId(id);
+    public Cliente update(Integer id, @Valid ClienteDTO objDTO) {
+        objDTO.setId(id);
         Cliente oldObj = findById(id);
-        validaPorCpfeEmail(objDto);
-        oldObj = new Cliente(objDto);
+
+        if(!objDTO.getSenha().equals(oldObj.getSenha()))
+            objDTO.setSenha(objDTO.getSenha());
+
+        validaPorCpfEEmail(objDTO);
+        oldObj = new Cliente(objDTO);
         return clienteRepository.save(oldObj);
     }
-
     public void delete(Integer id) {
         Cliente obj = findById(id);
         if(obj.getChamados().size() > 0 ){
@@ -56,20 +60,16 @@ public class ClienteService {
         clienteRepository.deleteById(id);
     }
 
-    private void validaPorCpfeEmail(ClienteDTO objDTO) {
+    private void validaPorCpfEEmail(ClienteDTO objDTO) {
         Optional<Pessoa> obj = pessoaRepository.findByCpf(objDTO.getCpf());
-
-        if(obj.isPresent() && obj.get().getId() != objDTO.getId()){
-            throw new DataIntegrityViolationException("CPF já cadastrado no sistema");
+        if (obj.isPresent() && obj.get().getId() != objDTO.getId()) {
+            throw new DataIntegrityViolationException("CPF já cadastrado no sistema!");
         }
 
         obj = pessoaRepository.findByEmail(objDTO.getEmail());
-
-        if(obj.isPresent() && obj.get().getId() != objDTO.getId()){
-            throw new DataIntegrityViolationException("E-mail já cadadstrado no sistema!");
+        if (obj.isPresent() && obj.get().getId() != objDTO.getId()) {
+            throw new DataIntegrityViolationException("E-mail já cadastrado no sistema!");
         }
     }
-
-
 
 }

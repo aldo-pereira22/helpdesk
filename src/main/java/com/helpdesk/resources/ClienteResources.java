@@ -43,16 +43,21 @@ public class ClienteResources {
                 .buildAndExpand(newObj.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
-//
+
 //    @PutMapping(value = "/{id}")
-//    public ResponseEntity<TecnicoDTO> update(@PathVariable Integer id,@Valid @RequestBody TecnicoDTO objDto){
-//        Tecnico obj = service.update(id, objDto);
-//        return ResponseEntity.ok().body(new TecnicoDTO(obj));
+//    public ResponseEntity<ClienteDTO> update(@PathVariable Integer id, @Valid @RequestBody ClienteDTO objDto){
+//         Cliente obj = service.update(id, objDto);
+//        return ResponseEntity.ok().body(new ClienteDTO(obj));
 //    }
-//
-//    @DeleteMapping(value = "/{id}")
-//    public ResponseEntity<TecnicoDTO> delete(@PathVariable Integer id){
-//        service.delete(id);
-//        return ResponseEntity.noContent().build();
-//    }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<ClienteDTO> update(@PathVariable Integer id, @Valid @RequestBody ClienteDTO objDTO) {
+        Cliente obj = service.update(id, objDTO);
+        return ResponseEntity.ok().body(new ClienteDTO(obj));
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<TecnicoDTO> delete(@PathVariable Integer id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
