@@ -39,7 +39,7 @@ public class ClienteDTO implements Serializable {
         addPerfil(Perfil.CLIENTE);
     }
 
-    public ClienteDTO(ClienteDTO obj) {
+    public ClienteDTO(Cliente obj) {
         this.id = obj.getId();
         this.nome = obj.getNome();
         this.cpf = obj.getCpf();
