@@ -12,6 +12,7 @@ import com.helpdesk.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,6 +41,13 @@ public class ChamadoService {
         return chamadoRepository.save(newChamado(objDTO));
     }
 
+    public Chamado update(Integer id, ChamadoDTO objDTO) {
+        objDTO.setId(id);
+        Chamado oldOobj = findById(id);
+        oldOobj =  newChamado((objDTO));
+        return chamadoRepository.save(oldOobj);
+    }
+
     private Chamado newChamado(ChamadoDTO obj){
         Tecnico tecnico = tecnicoService.findById(obj.getTecnico());
         Cliente cliente = clienteService.findById(obj.getCliente());
@@ -47,6 +55,10 @@ public class ChamadoService {
         Chamado chamado = new Chamado();
         if(obj.getId() != null){
             chamado.setId(obj.getId());
+        }
+
+        if(obj.getStatus().equals(2)){
+            chamado.setDataFechamento(LocalDate.now());
         }
 
         chamado.setTecnico(tecnico);
@@ -59,6 +71,8 @@ public class ChamadoService {
         return chamado;
 
     }
+
+
 }
 
 
