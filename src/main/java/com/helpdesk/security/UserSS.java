@@ -6,7 +6,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -24,7 +23,7 @@ public class UserSS implements UserDetails {
         this.senha = senha;
         this.authorities = perfis.stream().map(x -> new SimpleGrantedAuthority(x.getDescricao()))
                 .collect(Collectors.toSet());
-        ;
+
     }
 
     public Integer getId() {
