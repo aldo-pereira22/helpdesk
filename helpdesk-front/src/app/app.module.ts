@@ -34,6 +34,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
+import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 
 @NgModule({
 
@@ -41,7 +42,8 @@ import { HeaderComponent } from './components/header/header.component';
     AppComponent,
     NavComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    TecnicoListComponent
   ],
 
   imports: [
