@@ -26,17 +26,22 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-// Componentes do projeto
+
+
+// Componentes do projeto 
 import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
+
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -57,10 +62,13 @@ import { HomeComponent } from './components/home/home.component';
     MatCardModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+
+
 
   ],
+
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent], schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
