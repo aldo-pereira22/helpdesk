@@ -19,6 +19,15 @@ export class TecnicoListComponent implements OnInit {
       senha: '1234',
       perfis: ['0'],
       dataCriacao: '15/08/2022'
+    },
+    {
+      id: 1,
+      nome: 'Maicol Jefferson',
+      cpf: '123.456.789-00',
+      email: 'maicoljefferson@email.com',
+      senha: '1234',
+      perfis: ['1'],
+      dataCriacao: '15/08/2022'
     }
   ]
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'acoes'];

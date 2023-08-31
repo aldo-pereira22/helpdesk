@@ -1,0 +1,2 @@
+Comando para utilizar no CMD antes de iniciar o projeto: 
+    export NODE_OPTIONS = --openssl - legacy - provider
