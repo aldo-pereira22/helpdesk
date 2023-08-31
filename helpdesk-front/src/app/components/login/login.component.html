@@ -15,6 +15,7 @@
                 placeholder="Ex. 123">
         </mat-form-field>
 
-        <button [disabled]="!validaCampos()" class="full-width" mat-raised-button color="primary">Login</button>
+        <button (clicK)="logar()" [disabled]="!validaCampos()" class="full-width" mat-raised-button
+            color="primary">Login</button>
     </form>
 </div>
