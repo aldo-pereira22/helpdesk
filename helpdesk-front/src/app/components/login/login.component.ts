@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
   }
 
   logar(): void {
-    alert("TESTE")
-    console.log("TESTE")
-    // this.toast.error("Usuário e/ou senha incorretos!", "login")
+    // alert("TESTE")
+    // console.log("TESTE")
+    this.toast.error("Usuário e/ou senha incorretos!", "login")
 
   }
   validaCampos(): boolean {
