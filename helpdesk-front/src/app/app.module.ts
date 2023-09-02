@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 // Para realizar requisições HTTP
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Imports para componentes do Angular Material
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -37,6 +37,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
+import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 
 @NgModule({
 
@@ -80,7 +81,8 @@ import { ToastrModule } from 'ngx-toastr';
 
   ],
 
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent], schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
+
