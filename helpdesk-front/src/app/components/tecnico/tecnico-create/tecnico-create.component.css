@@ -1,7 +1,7 @@
 .container {
     width: 35rem;
     margin: auto;
-    padding: 1rem 1rem 3rem 1rem;
+    padding: 1rem;
     border-radius: .6rem;
 }
 
@@ -9,12 +9,13 @@
     width: 100%;
 }
 
-h1 {
+h1,
+p {
     text-align: center;
 }
 
 img {
-    height: 8rem;
+    height: 12rem;
     margin: auto;
 }
 
@@ -22,4 +23,13 @@ img {
     margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
+}
+
+button {
+    margin-top: 1.5rem;
+}
+
+p {
+    margin-top: 3rem;
+    opacity: .7;
 }
