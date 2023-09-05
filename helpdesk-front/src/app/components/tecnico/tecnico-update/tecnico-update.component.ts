@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Tecnico } from 'src/app/models/tecnico';
 import { TecnicoService } from 'src/app/services/tecnico.service';
@@ -33,16 +33,27 @@ export class TecnicoUpdateComponent implements OnInit {
   constructor(
     private service: TecnicoService,
     private toast: ToastrService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.tecnico.id = this.route.snapshot.paramMap.get('id');
+    this.findById();
+    console.log(this.tecnico)
   }
 
 
+  findById() {
+    this.service.findById(this.tecnico.id).subscribe(resposta => {
+      resposta.perfis = []
+      this.tecnico = resposta
+    })
+  }
+
   update() {
-    this.service.create(this.tecnico).subscribe(() => {
-      this.toast.success("Técnico cadastrado com sucesso!", 'Cadastro');
+    this.service.update(this.tecnico).subscribe(() => {
+      this.toast.success("Técnico Atualizado com sucesso!", 'Update');
       this.router.navigate(['tecnicos'])
     }, ex => {
       console.log(ex)
