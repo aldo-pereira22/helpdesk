@@ -48,6 +48,7 @@ export class TecnicoUpdateComponent implements OnInit {
     this.service.findById(this.tecnico.id).subscribe(resposta => {
       resposta.perfis = []
       this.tecnico = resposta
+      console.log(resposta.senha)
     })
   }
 

@@ -20,13 +20,13 @@ public class TecnicoDTO implements Serializable {
     @NotNull(message = "O campo NOME é requerido")
     protected  String nome;
 
-    @NotNull(message = "O campo NOME é requerido")
+    @NotNull(message = "O campo CPF é requerido")
     protected  String cpf;
 
-    @NotNull(message = "O campo NOME é requerido")
+    @NotNull(message = "O campo Email é requerido")
     protected  String email;
 
-    @NotNull(message = "O campo NOME é requerido")
+    @NotNull(message = "O campo Senha é requerido")
     protected String senha;
     protected Set<Integer> perfis = new HashSet<>();
 
@@ -43,7 +43,7 @@ public class TecnicoDTO implements Serializable {
         this.nome = obj.getNome();
         this.cpf = obj.getCpf();
         this.email = obj.getEmail();
-        this.senha = obj.getEmail();
+        this.senha = obj.getSenha();
         this.perfis = obj.getPerfis().stream().map( x -> x.getCodigo()).collect(Collectors.toSet());
         this.dataCriacao = obj.getDataCriacao();
         addPerfil(Perfil.CLIENTE);
