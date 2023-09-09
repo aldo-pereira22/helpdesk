@@ -16,8 +16,21 @@ export class ChamadoListComponent implements OnInit {
       dataAbertura: '21/06/2021',
       dataFechamento: '21/06/2021',
       prioridade: 'ALTA',
-      status: 'ANDAMENTo',
+      status: 'ANDAMENTO',
       titulo: 'CHAMADO 1',
+      descricao: 'Teste chamado 1',
+      tecnico: 1,
+      cliente: 6,
+      nomeCliente: 'Aldo Pereira',
+      nomeTecnico: 'Albert Einsten'
+    },
+    {
+      id: 2,
+      dataAbertura: '21/06/2021',
+      dataFechamento: '21/06/2021',
+      prioridade: 'ALTA',
+      status: 'FECHADO',
+      titulo: 'CHAMADO 2',
       descricao: 'Teste chamado 1',
       tecnico: 1,
       cliente: 6,
@@ -26,7 +39,7 @@ export class ChamadoListComponent implements OnInit {
     }
   ]
 
-  displayedColumns: string[] = ["id", "titulo", "cliente", "dataAbertura", "prioridade", "status", "acoes"]
+  displayedColumns: string[] = ["id", "titulo", "cliente", "tecnico", "dataAbertura", "prioridade", "status", "acoes"]
   dataSource = new MatTableDataSource<Chamado>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

@@ -6,6 +6,14 @@
         <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
     </mat-form-field>
+
+
+    <mat-radio-group color="primary">
+        <mat-radio-button>ABERTO</mat-radio-button>
+        <mat-radio-button>ANDAMENTO</mat-radio-button>
+        <mat-radio-button>ENCERRADO</mat-radio-button>
+    </mat-radio-group>
+
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="ELEMENT_DATA">
 
@@ -21,7 +29,12 @@
 
             <ng-container matColumnDef="cliente">
                 <th mat-header-cell *matHeaderCellDef> cliente </th>
-                <td mat-cell *matCellDef="let element"> {{element.cliente}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.nomeCliente}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="tecnico">
+                <th mat-header-cell *matHeaderCellDef> Técnico </th>
+                <td mat-cell *matCellDef="let element"> {{element.nomeTecnico}} </td>
             </ng-container>
 
             <ng-container matColumnDef="dataAbertura">
