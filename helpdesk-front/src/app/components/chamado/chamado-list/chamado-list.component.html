@@ -1,7 +1,7 @@
 <div class="container">
 
     <h1>Listando Chamados</h1>
-    <button class="mat-elevation-z8" mat-stroked-button color="primary">Novo chamado</button>
+    <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary">Novo chamado</button>
     <mat-form-field>
         <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
