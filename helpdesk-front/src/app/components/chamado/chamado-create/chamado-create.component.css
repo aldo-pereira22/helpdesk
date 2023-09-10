@@ -1,6 +1,6 @@
 .container {
     width: 45%;
-    margin: auto;
+    margin: auto auto 3rem auto;
     padding: 1rem;
     border-radius: 1rem;
 }
@@ -10,7 +10,8 @@
 }
 
 h1,
-img {
+img,
+p {
     text-align: center;
 }
 
@@ -26,4 +27,18 @@ img {
 
 .status-prioridade mat-form-field {
     width: 49%;
+}
+
+.descricao {
+    min-height: 6rem;
+    max-height: 10rem;
+}
+
+button {
+    margin-top: .5rem;
+}
+
+p {
+    margin-top: 3rem;
+    opacity: .7;
 }
