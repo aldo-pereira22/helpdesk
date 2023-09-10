@@ -1,1 +1,47 @@
-<p>chamado-create works!</p>
+<div class="container mat-elevation-z8">
+    <h1 class="full-width"> Criando chamado</h1>
+    <img class="full-width" src="assets/img/chamado-create.svg" alt="Chamado Image">
+
+
+    <form class="form">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Título do chamado</mat-label>
+            <input matInput placeholder="Ex. Troca de bateria de notebook">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+        </mat-form-field>
+    </form>
+
+    <div class="status-prioridade">
+        <mat-form-field appearance="outline">
+            <mat-label>Selecione um status </mat-label>
+            <mat-select>
+                <mat-option value="0">ABERTO</mat-option>
+                <mat-option value="1">EM ANDAMENTO</mat-option>
+                <mat-option value="2">FECHADO</mat-option>
+
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Selecione uma prioridade </mat-label>
+            <mat-select>
+                <mat-option value="0">BAIXA</mat-option>
+                <mat-option value="1">MÉDIA</mat-option>
+                <mat-option value="2">ALTA</mat-option>
+
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="tecnico">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Selecione um Técnico </mat-label>
+            <mat-select>
+                <mat-option value="0">Aldo</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
